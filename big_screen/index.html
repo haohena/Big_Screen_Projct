@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>登机梯可视化监控管理</title>
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+
+    <div class="t_container">
+        <!-- <header class="t_h_bg">
+            <span>安吉升客流</span>
+        </header>
+        <div class="nav-top">
+            <div class="nav-top-time">
+                <span id="date">2018年11月30日</span>
+                <span id="time">星期五&nbsp;15:34</span>
+            </div>
+        </div> -->
+        <div class="nav-top">
+            <span class="nav-top-logo"></span>
+            <span class="nav-top-title">登机梯可视化监控管理</span>
+            <div class="nav-top-time">
+                <span id="date">2018年11月30日</span>
+                <span id="time">星期五&nbsp;15:34</span>
+            </div>
+        </div>
+        
+        <main class="t_main">
+            <div class="middle_top">
+                <div class="middle_top_list">
+                  <div class="list_title">今日参观人数</div>
+                  <div class="list_num list_num1"><span class="counter-value" id="in">88</span>人次</div>
+                  <div class="today_list_font">单日最高参观人数：<span id="inmax">88</span>人次</div>
+                </div>
+                <div class="middle_top_list">
+                    <div class="list_title">实时舱内人数</div>
+                    <div class="list_num list_num2"><span class="counter-value" id="stay">88</span>人</div>
+                    <div class="today_list_font">历史容纳最多人数：<span id="staymax">88</span>人</div>
+                </div>
+                <div class="middle_top_list">
+                    <div class="list_title">本月参观人数</div>
+                    <div class="list_num list_num3"><span class="counter-value" id="month">88</span>人次</div>
+                    <div class="today_list_font">月累计参观量最高：<span id="monthmax">88</span>人次</div>
+                </div>
+              </div>
+            <div class="t_box">
+                <header class="t_title">
+                    <!-- <span>实时舱内人数统计(开放时间：8：00-18：00)</span> -->
+                    <span>实时舱内人数统计</span>
+                    <!-- <span class="t_number">当前：36人</span> -->
+                </header>
+                <div class="t_list">
+                </div>
+                <div id="chart_1" class="echart" style="width: 100%; height: 2.4rem;"></div>
+            </div>
+            <div class="t_box">
+                <header class="t_title">
+                    <span id = 'btn_1'>舱内容量</span>
+                </header>
+                <div id="chart_3" class="echart" style="width: 100%; height: 3rem;"></div>
+            </div>
+        </main>
+    </div>
+    <div class="form_container">
+        <div class="form_1">
+            <form >
+            <div class="input_1"><div class="login_logo">参数设置</div><div class="close">X</div></div>
+            <!-- <hr> -->
+            <div class="input_1"><input type="text" name="capability" id='cap_num' placeholder="&nbsp;设置舱内最大容纳人数"></div>
+            <div class="input_1"><input class="submit_1" type="button" onclick="submit_info()" value="提&nbsp;交"></div>
+            </form>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="js/getTime.js"></script>
+<script>
+    var timer = null;
+    function setTime(){
+        if(timer !== null){
+            clearTimeout(timer);
+        }
+        setTimeout(function () {
+            $("#date").text(getTime()[0]);
+            $("#time").text(getTime()[1] +"  "+ getTime()[2]);
+            setTime();
+        },1000);
+    }
+    setTime();
+</script>
+</body>
+
+</html>
